@@ -18,6 +18,7 @@ import ReviewDetails from './Component/ReviewDetails';
 import SignUp from './Page/SIgnUp';
 import AuthProvider from './AuthProvider';
 import PrivateRoute from './Private/PrivateRoute';
+import Updated from './Component/Updated';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
       {
         path: '/myReviews',
         element: <PrivateRoute><MyReviews /></PrivateRoute>,
+        loader:() => fetch('https://chill-gamer-server-black.vercel.app/game')
       },
       {
         path: '/gameWatch',
@@ -60,6 +62,12 @@ const router = createBrowserRouter([
         path: '/signIn',
         element: <SignUp></SignUp>,
       },
+      {
+        path:'/updateReview/:id',
+        element:<Updated></Updated>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/game/${params.id}`), 
+      }
     ],
   },
 ]);

@@ -16,8 +16,21 @@ const SignUp = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    const newUser={name,photo,email,password}
-    console.log(newUser)
+
+    // Password validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/; // Checks for lowercase, uppercase, and at least 6 characters
+    if (!passwordRegex.test(password)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Password Validation Failed',
+        text: 'Password must contain at least one uppercase letter, one lowercase letter, and be at least 6 characters long.',
+        confirmButtonText: 'Try Again',
+      });
+      return;
+    }
+
+    const newUser = { name, photo, email, password };
+    console.log(newUser);
 
     signUp(email, password)
       .then(result => {

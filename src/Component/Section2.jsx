@@ -13,7 +13,7 @@ const Section2 = () => {
         >
             <div className="container mx-auto text-center opacity-0 motion-safe:animate-fadeIn">
                 <h2 className="text-4xl font-bold text-white mb-6 transform transition-all motion-safe:hover:scale-105 motion-safe:duration-500">
-                    Welcome to Chill Gaming - Discover the Best Games for You
+                    WelCome to Chill Gaming - Discover the Best Games for You
                 </h2>
                 <p className="text-lg text-white mb-10 motion-safe:animate-fadeIn motion-safe:duration-500">
                     Whether you're looking for an action-packed adventure or a relaxing puzzle, we have the best games curated for you. Explore a variety of genres and find your next favorite game.

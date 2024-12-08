@@ -15,6 +15,9 @@ export default {
           '100%': { opacity: '1' },
         },
       },
+      colors: {
+        synthwave: "#d4af37",  // Synthwave থিমের জন্য একটি কালার কোড
+      },
     },
   },
   plugins: [
