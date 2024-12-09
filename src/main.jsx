@@ -33,13 +33,13 @@ const router = createBrowserRouter([
       {
         path: '/reviews',
         element: <Review />,
-        loader: () => fetch('http://localhost:5000/game'), 
+        loader: () => fetch('https://chill-gamer-server-black.vercel.app/game'), 
       },
       {
         path: '/reviewDetails/:id', 
         element: <PrivateRoute><ReviewDetails></ReviewDetails></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/game/${params.id}`), 
+          fetch(`https://chill-gamer-server-black.vercel.app/game/${params.id}`), 
       },
       {
         path: '/addReview',
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
         path:'/updateReview/:id',
         element:<Updated></Updated>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/game/${params.id}`), 
+          fetch(`https://chill-gamer-server-black.vercel.app/game/${params.id}`), 
       }
     ],
   },

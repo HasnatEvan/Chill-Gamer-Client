@@ -6,8 +6,8 @@ const GameCard = ({ game }) => {
 
     // Function to render stars based on rating
     const renderStars = (rating) => {
-        const fullStars = Math.floor(rating); // পূর্ণ তারকা
-        const emptyStars = 5 - fullStars; // ফাঁকা তারকা
+        const fullStars = Math.floor(rating); 
+        const emptyStars = 5 - fullStars; 
         return (
             <div className="flex items-center space-x-1">
                 {Array(fullStars).fill('★').map((star, index) => (

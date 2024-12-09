@@ -32,7 +32,7 @@ const AddReview = () => {
 
         const newGame = { image, title, review, rating, publishingYear, genre, email };
 
-        fetch('http://localhost:5000/game', {
+        fetch('https://chill-gamer-server-black.vercel.app/game', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

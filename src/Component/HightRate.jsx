@@ -5,7 +5,7 @@ const HighestRated = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/highest-rated-games")
+    fetch("https://chill-gamer-server-black.vercel.app/highest-rated-games")
       .then((res) => res.json())
       .then((data) => setGames(data))
       .catch((err) => console.error("Error fetching games:", err));

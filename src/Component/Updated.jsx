@@ -19,7 +19,7 @@ const Updated = () => {
         const email = form.email.value;
         const updateGame = { image, title, review, rating, publishingYear, genre, email };
 
-        fetch(`http://localhost:5000/game/${_id}`, {
+        fetch(`https://chill-gamer-server-black.vercel.app/game/${_id}`, {
             method: 'PUT', 
             headers: {
                 'Content-Type': 'application/json',
