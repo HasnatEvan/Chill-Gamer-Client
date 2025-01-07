@@ -40,16 +40,17 @@ const HighestRated = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-blue-50 to-gray-100 min-h-screen py-8">
-      <div className="container mx-auto p-4">
-        <h2 className="text-3xl font-extrabold text-center mb-6 text-blue-700">
-          Highest Rated Games
+    <div className="bg-black min-h-screen">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Title with margin */}
+        <h2 className="lg:text-4xl text-2xl font-extrabold text-center mb-12 pt-10 text-[#00ffcc] drop-shadow-lg">
+        𝑯𝒊𝒈𝒉𝒆𝒔𝒕 𝑹𝒂𝒕𝒆𝒅 𝑮𝒂𝒎𝒆𝒔
         </h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-10">
           {games.map((game) => (
             <div
               key={game._id}
-              className="card bg-white border border-gray-200 rounded-lg shadow-lg transform transition-all duration-700 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-blue-200"
+              className="card bg-400 rounded-lg shadow-lg transform transition-all duration-700 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-blue-200"
             >
               <img
                 src={game.image}
@@ -69,7 +70,7 @@ const HighestRated = () => {
                 </div>
                 <Link
                   to={`/reviewDetails/${game._id}`}
-                  className="inline-block w-full text-center text-white bg-blue-600 hover:bg-blue-700 py-2 rounded-md font-medium transition-transform transform hover:scale-105"
+                  className="inline-block w-full text-center text-black bg-gradient-to-r from-[#00ffcc] to-[#00b3b3] py-2 rounded-md font-medium transition-transform transform hover:scale-105 hover:from-[#00b3b3] hover:to-[#00ffcc]"
                 >
                   Explore Details
                 </Link>

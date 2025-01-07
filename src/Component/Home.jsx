@@ -9,17 +9,16 @@ const Home = () => {
         <div>
             <main>
                 <Banner></Banner>
-                <section>
-                    <HightRate></HightRate>
-                </section>
-                <section>
-                    <Section1></Section1>
-                </section>
-                <section>
-                    <Section2></Section2>
-                </section>
+
+                <HightRate></HightRate>
+
+
+                <Section1></Section1>
+
+                <Section2></Section2>
+
             </main>
-         
+
         </div>
     );
 };

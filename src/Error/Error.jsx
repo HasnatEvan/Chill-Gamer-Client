@@ -1,7 +1,7 @@
 const Error = () => {
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-gray-100 to-gray-200 animate-fade-in">
-            <h1 className="text-7xl font-extrabold text-gray-800 animate-bounce">404</h1>
+        <div className="flex flex-col items-center justify-center h-screen bg-black to-gray-200 animate-fade-in">
+            <h1 className="text-7xl font-extrabold animate-bounce text-[#00ffcc]">404</h1>
             <p className="mt-4 text-2xl text-gray-600 animate-slide-in-up">
                 Page Not Found
             </p>
@@ -10,7 +10,7 @@ const Error = () => {
             </p>
             <button
                 onClick={() => (window.location.href = "/")}
-                className="mt-8 px-8 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105 focus:ring-4 focus:ring-blue-400 focus:outline-none animate-slide-in-up delay-400"
+                className="mt-8 px-8 py-3 bg-gradient-to-r from-[#00ffcc] to-[#00b3b3] text-white rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105 focus:ring-4 focus:ring-blue-400 focus:outline-none animate-slide-in-up delay-400"
             >
                 Go to Homepage
             </button>

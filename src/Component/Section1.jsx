@@ -1,71 +1,127 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
-const trendingGames = [
-    { id: 1, name: 'Game 1', title: 'An exciting adventure game.', imageUrl: 'https://i.ibb.co.com/DLK51zB/timber-explorer-1029473-526278.jpg', rating: 4.5 },
-    { id: 2, name: 'Game 2', title: 'A challenging puzzle experience.', imageUrl: 'https://i.ibb.co.com/9c87Bs8/red-human-figure-standing-labyrinth-220873-6717.jpg', rating: 4.7 },
-    { id: 3, name: 'Game 3', title: 'An immersive RPG world.', imageUrl: 'https://i.ibb.co.com/4Z9Tj15/beautiful-medieval-fantasy-landscape-23-2150916358.jpg', rating: 4.2 },
-    { id: 4, name: 'Game 4', title: 'A thrilling action-packed game.', imageUrl: 'https://i.ibb.co.com/SsLDpRx/apocalyptic-destruction-war-zone-landscape-23-2150985678.jpg', rating: 4.8 },
-];
-
-const renderStars = (rating) => {
-    const fullStars = Math.floor(rating);
-    const halfStar = rating % 1 >= 0.5;
-    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
-
-    return (
-        <>
-            {Array(fullStars)
-                .fill(0)
-                .map((_, index) => (
-                    <span key={`full-${index}`} className="text-yellow-500 text-lg">★</span>
-                ))}
-            {halfStar && <span className="text-yellow-500 text-lg">✰</span>}
-            {Array(emptyStars)
-                .fill(0)
-                .map((_, index) => (
-                    <span key={`empty-${index}`} className="text-gray-300 text-lg">☆</span>
-                ))}
-        </>
-    );
-};
+// Framer Motion for animations
+import { motion } from 'framer-motion';
 
 const Section1 = () => {
-    return (
-        <section className="trending-games bg-gradient-to-r from-gray-100 to-blue-50 py-16">
-            <div className="container mx-auto">
-                <h2 className="text-4xl font-extrabold text-center mb-12 text-blue-700">
-                    Trending Games
-                </h2>
-                <p className="text-lg text-center text-gray-600 mb-8">
-                    Explore the most popular games that are trending right now! From action-packed adventures to mind-bending puzzles, we have something for everyone. Choose your favorite and dive into the world of gaming.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-6">
-                    {trendingGames.map((game) => (
-                        <div
-                            key={game.id}
-                            className="card bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105"
-                        >
-                            <img
-                                src={game.imageUrl}
-                                alt={game.name}
-                                className="w-full h-48 object-cover rounded-t-lg"
-                            />
-                            <div className="p-4">
-                                <h3 className="text-xl font-semibold text-gray-800">{game.name}</h3>
-                                {game.title && (
-                                    <p className="text-sm text-gray-500 italic mt-1">{game.title}</p>
-                                )}
-                                <div className="flex items-center mt-4">
-                                    <span className="mr-2 text-sm text-gray-600 font-medium">Rating:</span>
-                                    {renderStars(game.rating)}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+  const games = [
+    {
+      id: '677bcfae094293b77b099867',
+      image: "https://i.ibb.co.com/58WNtbh/concept-art-futuristic-soldier-adventure-wallpaper.jpg",
+      title: "Grand Theft Auto V (GTA V)",
+      review: "Grand Theft Auto V (GTA V) is an open-world action-adventure video game...",
+      rating: 3,
+      publishingYear: "2013",
+      genre: "action",
+    },
+    {
+      id: '677bd065094293b77b099868',
+      image: "https://i.ibb.co.com/Lrps9YH/apocalyptic-destruction-war-zone-landscap.jpg",
+      title: "God of War: Ragnarök",
+      review: "Grand Theft Auto V (GTA V) is an open-world action-adventure video game...",
+      rating: 2,
+      publishingYear: "2019",
+      genre: "action",
+    },
+    {
+      id: '677bd0fa094293b77b099869',
+      image: "https://i.ibb.co.com/cbSjGdk/medium-shot-soldier-with-weapon.jpg",
+      title: "Cyberpunk 2077",
+      review: "Grand Theft Auto V (GTA V) is an open-world action-adventure video game...",
+      rating: 5,
+      publishingYear: "2013",
+      genre: "action",
+    },
+    {
+      id: '677bd233094293b77b09986a',
+      image: "https://i.ibb.co.com/FmXN6QK/apocalyptic-destruction-war-zone-landscap.jpg",
+      title: "Tom Clancy's Rainbow Six Siege",
+      review: "Grand Theft Auto V (GTA V) is an open-world action-adventure video game...",
+      rating: 1,
+      publishingYear: "2017",
+      genre: "action",
+    },
+    {
+      id: '677bd45a094293b77b09986c',
+      image: "https://i.ibb.co.com/XVPH1hD/cowboy-going-old-western-town.jpg",
+      title: "Red Dead Redemption 2",
+      review: "This action-adventure game is set in the Wild West and follows Arthur...",
+      rating: 5,
+      publishingYear: "2002",
+      genre: "adventure",
+    },
+  ];
+
+  return (
+    <section className="py-16  bg-black">
+      <h2 className="text-4xl font-bold text-center text-[#00ffcc] mb-8">
+        𝑻𝒓𝒆𝒏𝒅𝒊𝒏𝒈 𝑮𝒂𝒎𝒆𝒔
+      </h2>
+      <div className="my-10">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={20}
+          navigation
+          pagination={{
+            clickable: false,
+          }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            480: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 15,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+            1280: {
+              slidesPerView: 5,
+              spaceBetween: 30,
+            },
+          }}
+        >
+          {games.map((game) => (
+            <SwiperSlide key={game.id}>
+              <motion.div
+                className="relative flex flex-col items-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+              >
+                <motion.img
+                  src={game.image}
+                  alt={`Game: ${game.title}`}
+                  className="w-full object-cover rounded-lg shadow-md 
+                    h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px]"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                />
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
+  );
 };
 
 export default Section1;

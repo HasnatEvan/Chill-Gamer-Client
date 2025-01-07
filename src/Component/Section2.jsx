@@ -1,30 +1,100 @@
-import React from 'react';
-import bg from '../../src/assets/bg.jpg';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Section2 = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // এখানে আপনি ডাটা সাবমিট করার জন্য API কল বা অন্য কোন লজিক রাখতে পারেন
+        alert('Form submitted!');
+    };
+
     return (
-        <section
-            className="section2 py-16 border-2 border-black"
-            style={{
-                backgroundImage: `url(${bg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}
-        >
-            <div className="container mx-auto text-center opacity-0 motion-safe:animate-fadeIn">
-                <h2 className="text-4xl font-bold text-white mb-6 transform transition-all motion-safe:hover:scale-105 motion-safe:duration-500">
-                    WelCome to Chill Gaming - Discover the Best Games for You
-                </h2>
-                <p className="text-lg text-white mb-10 motion-safe:animate-fadeIn motion-safe:duration-500">
-                    Whether you're looking for an action-packed adventure or a relaxing puzzle, we have the best games curated for you. Explore a variety of genres and find your next favorite game.
-                </p>
-                <p className="text-md text-white mb-8 motion-safe:animate-fadeIn motion-safe:duration-500">
-                    Our collection is handpicked to ensure you experience the best of gaming, with games of every genre ranging from heart-pumping action to relaxing, mind-bending puzzles. Dive into new worlds and embark on epic adventures right from the comfort of your home.
-                </p>
-                <p className="text-lg text-white mb-10 motion-safe:animate-fadeIn motion-safe:duration-500">
-                    Browse through our game categories and find the perfect game for your mood and interests. Whether it's strategy, fantasy, or simulation, we have something for everyone.
-                </p>
-            </div>
+        <section className="pb-5 bg-black">
+            <h2 className="text-3xl font-semibold text-[#00ffcc] text-center mb-8">𝑪𝒐𝒏𝒕𝒂𝒄𝒕 𝑼𝒔</h2>
+            <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-gray-300 p-8 rounded-lg shadow-lg">
+                <motion.div
+                    className="mb-6"
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                >
+                    <label htmlFor="name" className="block text-lg font-medium text-gray-700">Your Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder="Enter your name"
+                        required
+                    />
+                </motion.div>
+
+                <motion.div
+                    className="mb-6"
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                >
+                    <label htmlFor="email" className="block text-lg font-medium text-gray-700">Your Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder="Enter your email"
+                        required
+                    />
+                </motion.div>
+
+                <motion.div
+                    className="mb-6"
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                >
+                    <label htmlFor="message" className="block text-lg font-medium text-gray-700">Your Message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder="Enter your message"
+                        rows="5"
+                        required
+                    />
+                </motion.div>
+
+                <div className="flex justify-center">
+                    <motion.button
+                        type="submit"
+                        className=" bg-gradient-to-r from-[#00ffcc] to-[#00b3b3] text-white py-2 px-6 rounded-lg hover:bg-indigo-700"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                    >
+                        Submit
+                    </motion.button>
+                </div>
+            </form>
         </section>
     );
 };

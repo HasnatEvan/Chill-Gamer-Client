@@ -33,13 +33,13 @@ const router = createBrowserRouter([
       {
         path: '/reviews',
         element: <Review />,
-        loader: () => fetch('https://chill-gamer-server-black.vercel.app/game'), 
+        loader: () => fetch('https://chill-gamer-server-black.vercel.app/game'),
       },
       {
-        path: '/reviewDetails/:id', 
+        path: '/reviewDetails/:id',
         element: <PrivateRoute><ReviewDetails></ReviewDetails></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`https://chill-gamer-server-black.vercel.app/game/${params.id}`), 
+          fetch(`https://chill-gamer-server-black.vercel.app/game/${params.id}`),
       },
       {
         path: '/addReview',
@@ -48,11 +48,11 @@ const router = createBrowserRouter([
       {
         path: '/myReviews',
         element: <PrivateRoute><MyReviews /></PrivateRoute>,
-        loader:() => fetch('https://chill-gamer-server-black.vercel.app/game')
+        loader: () => fetch('https://chill-gamer-server-black.vercel.app/game')
       },
       {
         path: '/gameWatch',
-        element:<PrivateRoute> <GameWatch /></PrivateRoute>,
+        element: <PrivateRoute> <GameWatch /></PrivateRoute>,
       },
       {
         path: '/login',
@@ -63,10 +63,10 @@ const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
-        path:'/updateReview/:id',
-        element:<Updated></Updated>,
+        path: '/updateReview/:id',
+        element: <Updated></Updated>,
         loader: ({ params }) =>
-          fetch(`https://chill-gamer-server-black.vercel.app/game/${params.id}`), 
+          fetch(`https://chill-gamer-server-black.vercel.app/game/${params.id}`),
       }
     ],
   },
@@ -74,8 +74,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <AuthProvider>
-  <RouterProvider router={router} />
-  </AuthProvider>
+    <div className='max-w-screen-xl mx-auto'>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </div>
   </StrictMode>
 );

@@ -51,7 +51,7 @@ const ReviewDetails = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center py-8 px-4">
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center py-8 px-4">
             <div className="max-w-4xl w-full bg-white rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl flex flex-col">
                 {/* Game Cover Image */}
                 <img className="w-full h-64 object-cover sm:h-48 md:h-64 rounded-lg shadow-md transform transition-all duration-500 hover:scale-105" src={image} alt={title} />

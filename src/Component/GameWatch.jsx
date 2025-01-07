@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { TrashIcon } from '@heroicons/react/24/solid';
 import Swal from 'sweetalert2';
-import img from '../../src/assets/signup.jpg'; // Import your image
 
 const GameWatch = () => {
   const [watchlist, setWatchlist] = useState([]);
@@ -17,8 +16,8 @@ const GameWatch = () => {
       text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
+      confirmButtonColor: '#FF6347', // Navbar-style red
+      cancelButtonColor: '#4CAF50', // Navbar-style green
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
@@ -31,21 +30,18 @@ const GameWatch = () => {
   };
 
   return (
-    <div 
-      className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-8 px-4"
-      style={{ backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-    >
-      <div className="max-w-5xl w-full bg-white bg-opacity-80 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-        <h2 className="text-4xl font-extrabold text-gray-800 text-center py-6 border-b-4 border-gray-300 mb-4">
-          Your Watchlist
+    <div className="min-h-screen flex items-center justify-center bg-[#2C3E50] py-8 px-4">
+      <div className="max-w-5xl w-full bg-[#34495E] bg-opacity-90 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+        <h2 className="text-4xl font-extrabold text-[#00ffcc] text-center py-6 border-b-4 border-gray-300 mb-4">
+        𝒀𝒐𝒖𝒓 𝑾𝒂𝒕𝒄𝒉𝒍𝒊𝒔𝒕
         </h2>
 
         {watchlist.length === 0 ? (
-          <p className="text-xl text-gray-600 text-center py-8">Your watchlist is empty.</p>
+          <p className="text-xl text-gray-200 text-center py-8">Your watchlist is empty.</p>
         ) : (
           <table className="min-w-full table-auto">
             <thead>
-              <tr className="bg-gradient-to-r from-purple-300 to-pink-300 text-white">
+              <tr className="bg-[#1F2937] text-gray-300">
                 <th className="py-3 px-6 text-left">Game Title</th>
                 <th className="py-3 px-6 text-left">Genre</th>
                 <th className="py-3 px-6 text-left">Year</th>
@@ -54,10 +50,10 @@ const GameWatch = () => {
             </thead>
             <tbody>
               {watchlist.map((game) => (
-                <tr key={game._id} className="border-t border-gray-300 hover:bg-gray-100 transition-all duration-300">
-                  <td className="py-3 px-6 text-lg font-semibold text-gray-800">{game.title}</td>
-                  <td className="py-3 px-6 text-gray-600">{game.genre}</td>
-                  <td className="py-3 px-6 text-gray-600">{game.publishingYear}</td>
+                <tr key={game._id} className="border-t border-gray-200 hover:bg-[#4A5568] transition-all duration-300">
+                  <td className="py-3 px-6 text-lg font-semibold text-gray-500">{game.title}</td>
+                  <td className="py-3 px-6 text-gray-500">{game.genre}</td>
+                  <td className="py-3 px-6 text-gray-500">{game.publishingYear}</td>
                   <td className="py-3 px-6 text-center">
                     <button 
                       onClick={() => handleDelete(game._id)}

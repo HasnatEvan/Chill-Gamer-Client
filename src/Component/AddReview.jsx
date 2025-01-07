@@ -66,13 +66,13 @@ const AddReview = () => {
 
     return (
         <div
-            className="min-h-screen flex items-center justify-center bg-cover bg-center"
+            className="min-h-screen flex items-center justify-center py-10 bg-cover bg-center"
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
             <div
                 className="max-w-2xl w-full p-6 bg-white bg-opacity-30 backdrop-blur-lg rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-500 ease-in-out animate__animated animate__fadeIn animate__delay-1s"
             >
-                <h2 className="text-2xl text-center font-bold mb-4 text-white animate__animated animate__fadeIn animate__delay-1s">Add a New Review</h2>
+                <h2 className="text-2xl text-center font-bold mb-4 text-[#00ffcc] animate__animated animate__fadeIn animate__delay-1s">𝑨𝒅𝒅 𝒂 𝑵𝒆𝒘 𝑹𝒆𝒗𝒊𝒆𝒘</h2>
                 <form onSubmit={handleSubmit}>
                     {/* Game Cover Image */}
                     <div className="mb-4 animate__animated animate__fadeIn animate__delay-2s">
@@ -167,7 +167,7 @@ const AddReview = () => {
 
                     <button
                         type="submit"
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                        className="bg-gradient-to-r from-[#00ffcc] to-[#00b3b3] text-black px-4 py-2 rounded hover:bg-blue-600"
                     >
                         Submit Review
                     </button>
